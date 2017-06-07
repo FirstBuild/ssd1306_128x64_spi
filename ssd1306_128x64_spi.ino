@@ -13,6 +13,7 @@
 #include <Adafruit_SSD1306.h>
 #include <Encoder.h>
 #include "FontList.h"
+#include "ScreenExamples.h"
 
 // Define the SPI pins:
 #define OLED_MOSI   11
@@ -43,7 +44,7 @@ void setup()   {
 }
 
 static void showFontExample(uint8_t index) {
-  static const char msg[] PROGMEM = "NEW YORK";
+  static const char msg[] = "NEW YORK";
   char buf[64];
   int16_t x1, y1;
   uint16_t w, h;
@@ -90,7 +91,9 @@ void loop() {
     oldPosition = newPosition;
 
     // Show the new font
-    showFontExample(newPosition);
+    //showFontExample(newPosition);
+    showScreenExample(newPosition, display);
+    
     Serial.println(newPosition);
   }
 }
